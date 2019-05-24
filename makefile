@@ -17,4 +17,3 @@ CCL.o: CCL.cuh CCL.cu reduction.cuh
 
 clean:
 	${RM} *.o main
-
