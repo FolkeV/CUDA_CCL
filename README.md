@@ -24,7 +24,7 @@ This was one part of a pipeline implemented for a GPU blob detection algorithm d
 
 * Clone this repo onto your computer
 
-* Edit the line `CUDAFLAGS = -arch=sm 62` in the makefile to whichever compute capability your graphics card uses. The info should be able to be found here: <https://developer.nvidia.com/cuda-gpus.>
+* Edit the line `CUDAFLAGS = -arch=sm 62` in the makefile to whichever compute capability your graphics card uses. The info should be able to be found here: <https://developer.nvidia.com/cuda-gpus>.
 
 * Run `make`
 
