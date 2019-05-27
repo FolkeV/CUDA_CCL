@@ -70,6 +70,10 @@ int main(int argc,char **argv){
 	// Run kernel
 	connectedComponentLabeling(d_labels, d_img, numCols, numRows);
 	cudaDeviceSynchronize();
+	
+	// Count components
+	unsigned int components = util::countComponents(d_labels, numPixels);
+	std::cout << "Number of components: " << components << std::endl;
 
 	// Plot result
 	cv::Mat finalImage = util::postProc(d_labels, numCols, numRows);

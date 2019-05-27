@@ -43,6 +43,17 @@ namespace util{
 			outputImg[i] = inputImg[i] > mean ? 255:0;
 		}
 	}
+	
+	// Count the number of individual components
+	unsigned int countComponents(unsigned int* img, size_t N){
+		unsigned int components = 0;
+		for (int i = 0; i < N; i++){
+		    // Each new component will have its root+1 as label
+			if (img[i] == i+1)
+				components ++;
+		}
+		return components;
+	}
 
 	// Convert image to cv::Mat and apply colour map for visualisation
 	cv::Mat postProc(unsigned int* img, size_t numCols, size_t numRows){
