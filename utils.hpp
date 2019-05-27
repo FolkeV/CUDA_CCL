@@ -40,7 +40,7 @@ namespace util{
 	// Apply a threshold on image on the CPU
 	void threshold(unsigned char* outputImg, unsigned char* inputImg, size_t mean, size_t N){
 		for (int i = 0; i < N; i++){
-			outputImg[i] = inputImg[i] < mean ? 255:0;
+			outputImg[i] = inputImg[i] > mean ? 255:0;
 		}
 	}
 
