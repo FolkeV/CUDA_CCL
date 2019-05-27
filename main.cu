@@ -65,7 +65,7 @@ int main(int argc,char **argv){
 	cudaMallocManaged(&d_img   , numPixels * sizeof(char));
 
 	// Pre process image
-	int imgMean = util::mean(image.data, numPixels);
+	unsigned int imgMean = util::mean(image.data, numPixels);
 	util::threshold(d_img, image.data, imgMean, numPixels);
 
 	// Run and time kernel

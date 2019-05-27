@@ -26,8 +26,8 @@
 
 namespace util{
 	// Compute mean of image data
-	int mean(const unsigned char* img, const int N){
-		int mean = 0;
+	unsigned int mean(const unsigned char* img, const int N){
+		unsigned int mean = 0;
 
 		for(int i = 0; i<N; i++){
 			mean += img[i];
