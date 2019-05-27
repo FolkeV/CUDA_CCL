@@ -29,6 +29,7 @@
 
 #include "CCL.cuh"
 #include "utils.hpp"
+#include "timer.h"
 
 int main(int argc,char **argv){
 	std::string fileName;
@@ -67,9 +68,13 @@ int main(int argc,char **argv){
 	int imgMean = util::mean(image.data, numPixels);
 	util::threshold(d_img, image.data, imgMean, numPixels);
 
-	// Run kernel
+	// Run and time kernel
+	GpuTimer timer;
+	timer.Start();
 	connectedComponentLabeling(d_labels, d_img, numCols, numRows);
-	cudaDeviceSynchronize();
+	timer.Stop();
+	std::cout << "GPU code ran in: " << timer.Elapsed() << "ms" << std::endl;
+//	cudaDeviceSynchronize();	// Timer has syncronization built in
 	
 	// Count components
 	unsigned int components = util::countComponents(d_labels, numPixels);
