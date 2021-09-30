@@ -77,7 +77,7 @@ __global__ void init_labels(unsigned int* g_labels, const unsigned char *g_image
 		// Initialise Label
 		// Label will be chosen in the following order:
 		// NW > N > NE > E > current position
-		label = (nyxm1)   ?  iy   *numCols + ix-1 : iy*numCols + ix;
+		label = (nyxm1)   ?  iy   *numCols + ix+1 : iy*numCols + ix;
 		label = (nym1xp1) ? (iy-1)*numCols + ix+1 : label;
 		label = (nym1x)   ? (iy-1)*numCols + ix   : label;
 		label = (nym1xm1) ? (iy-1)*numCols + ix-1 : label;
